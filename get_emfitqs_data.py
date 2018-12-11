@@ -1,5 +1,6 @@
 import requests
 import re
+import datetime
 import pandas as pd
 import time
 import _thread
@@ -13,6 +14,7 @@ def input_thread():
     exit_flag = int(input("Press 1 to terminate : "))
     
 exit_flag = _thread.start_new_thread(input_thread, ( ))
+start_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
 while True:
     emfit_qs_value.setdefault('timestamp_from_machine', [])
@@ -30,5 +32,5 @@ while True:
 
 print("Writing data...", end='') 
 emfit_df = pd.DataFrame.from_dict(emfit_qs_value)
-emfit_df.to_csv("emfit_data.csv")
+emfit_df.to_csv(start_time + "_emfit_data.csv")
 print("Done!")
