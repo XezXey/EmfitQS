@@ -1,0 +1,6 @@
+1. The ip-address of emfitqs device can be found by using following command
+    - $ arp -a
+    - $ nmap -sP 10.204.161.*
+2. in the page <ip-address>/dvmstatus.htm is the page that contain data from emfitqs
+
+3. call script with 1 agruments which is name of subject
